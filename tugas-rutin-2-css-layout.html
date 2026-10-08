@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas Rutin 2 — CSS Layouting Portofolio — Nayla Salsabila</title>
+    <meta name="description" content="Portofolio Nayla Salsabila — desainer poster, editor video, dan pecinta memasak. Layout dibangun dengan CSS Grid & Flexbox." />
+    <link rel="stylesheet" href="style.css">
+    <meta property="og:title" content="Nayla Salsabila — Portofolio" />
+    <meta property="og:description" content="Desainer poster, editor video, dan pecinta memasak." />
+    <meta property="og:type" content="website" />
+
+</head>
+
+<body>  
+    <div class="page__layout">
+
+        <!-- ===== HEADER ===== -->
+        <header class="page__header">
+            <div class="header__bar">
+                <h1 class="header__title">Nayla <span class="header__title-accent">Salsabila</span></h1>
+                <nav aria-label="Navigasi utama">
+                    <ul class="nav__list">
+                        <li><a class="nav__link" href="#tentang">Tentang</a></li>
+                        <li><a class="nav__link" href="#keahlian">Keahlian</a></li>
+                        <li><a class="nav__link" href="#kontak">Kontak</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- ===== MAIN (article) ===== -->
+        <main class="page__main">
+            <article class="card">
+                <h2 id="tentang" class="article__title">Halo, Saya Nayla 👋</h2>
+                <p class="article__subtitle">Desainer poster, editor video, dan pecinta memasak</p>
+
+                <figure class="figure">
+                    <img src="gambar/WhatsApp Image 2026-08-23 at 09.02.58.jpeg" alt="Foto profil Nayla Salsabila" loading="lazyclass=" class="figure__img">
+                    <figcaption class="figure__caption">
+                        Nayla Salsabila — menggabungkan kreativitas visual dan cita rasa dalam setiap karya.
+                    </figcaption>
+                </figure>
+
+                <h3 id="keahlian" class="article__heading">Keahlian &amp; Hobi</h3>
+                <p class="article__text">
+                    Saya memiliki ketertarikan besar pada dunia desain grafis, terutama pembuatan poster yang
+                    komunikatif dan estetis. Selain itu, saya juga aktif mengedit video untuk berbagai keperluan,
+                    mulai dari konten media sosial hingga promosi. Di luar layar, saya sangat menikmati memasak —
+                    bagi saya, dapur adalah tempat bereksperimen dan menciptakan hidangan yang menggugah selera.
+                </p>
+
+                <div class="skills-list" aria-label="Daftar keahlian">
+                    <span class="skills-list__item">Desain Poster</span>
+                    <span class="skills-list__item">Edit Video</span>
+                    <span class="skills-list__item">Fotografi Makanan</span>
+                    <span class="skills-list__item">Resep Kreatif</span>
+                </div>
+
+                <h3 class="article__heading">Pendekatan Kreatif</h3>
+                <p class="article__text">
+                    Saya percaya bahwa setiap proyek adalah cerita yang perlu disampaikan dengan visual yang kuat
+                    dan sentuhan personal. Baik itu poster, video, atau resep masakan, saya selalu berusaha
+                    menghadirkan nilai estetika dan fungsi yang seimbang.
+                </p>
+            </article>
+        </main>
+
+        <!-- ===== ASIDE ===== -->
+        <aside class="page__aside card">
+            <h2 class="aside__title">Info Singkat</h2>
+
+            <time class="aside__date" datetime="2026-08-26">📅 26 Agustus 2026</time>
+
+            <h3 class="article__heading">Keahlian Utama</h3>
+            <ul class="aside__list">
+                <li class="aside__list-item">Desain Poster (Canva)</li>
+                <li class="aside__list-item">Edit Video (CapCut)</li>
+                <li class="aside__list-item">Memasak &amp; Resep Kreatif</li>
+            </ul>
+
+            <h3 class="article__heading">Hobi Favorit</h3>
+            <ul class="aside__list">
+                <li class="aside__list-item">Mencoba resep baru</li>
+                <li class="aside__list-item">Fotografi makanan</li>
+                <li class="aside__list-item">Menonton tutorial desain</li>
+            </ul>
+        </aside>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="page__footer">
+            <div class="footer__bar">
+                <p>&copy; 2026 <a href="#">Nayla Salsabila</a>. Dibangun dengan ❤️ menggunakan CSS Grid &amp; Flexbox.</p>
+                <time datetime="2026-08-26">Terakhir diperbarui: 26 Agustus 2026</time>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

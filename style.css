@@ -1,0 +1,264 @@
+    /* ==========================================================
+           1. CSS VARIABLES (:root) — minimal 5 required, ada 10
+           ========================================================== */
+        :root {
+            --color-bg: #faf9f6;
+            --color-surface: #ffffff;
+            --color-dark: #1e1e2a;
+            --color-accent: #b88a0b;
+            --color-text: #2e2e3e;
+            --color-text-muted: #4a4a5a;
+            --color-border: #dcdbd4;
+            --radius-lg: 1.5rem;
+            --radius-md: 0.75rem;
+            --gap-main: 2rem;
+        }
+
+        /* Bonus: Dark mode via prefers-color-scheme */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #14141c;
+                --color-surface: #1e1e2a;
+                --color-dark: #0c0c12;
+                --color-accent: #f7c948;
+                --color-text: #e8e7f0;
+                --color-text-muted: #a8a7b8;
+                --color-border: #33333f;
+            }
+        }
+
+        /* ==========================================================
+           2. RESET & GLOBAL — box-sizing: border-box global
+           ========================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        /* ==========================================================
+           3. LAYOUT UTAMA — CSS Grid (page__layout)
+           HTML5 Semantik: header, nav, main, aside, footer
+           ========================================================== */
+        .page__layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                "header"
+                "main"
+                "aside"
+                "footer";
+            gap: var(--gap-main);
+            max-width: 1200px;
+            margin-inline: auto;
+            padding: 1.5rem;
+        }
+
+        @media (min-width: 800px) {
+            .page__layout {
+                grid-template-columns: 2fr 1fr;
+                grid-template-areas:
+                    "header header"
+                    "main   aside"
+                    "footer footer";
+            }
+        }
+
+        .page__header  { grid-area: header; }
+        .page__main    { grid-area: main; }
+        .page__aside   { grid-area: aside; }
+        .page__footer  { grid-area: footer; }
+
+        /* ==========================================================
+           4. HEADER — Flexbox component #1 (header__bar)
+           ========================================================== */
+        .header__bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            background: var(--color-dark);
+            color: var(--color-bg);
+            padding: 1.5rem 2rem;
+            border-radius: var(--radius-lg);
+        }
+
+        .header__title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .header__title-accent {
+            color: var(--color-accent);
+        }
+
+        /* Nav — Flexbox component #2 (nav__list) */
+        .nav__list {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+        }
+
+        .nav__link {
+            color: var(--color-bg);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.4rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .nav__link:hover {
+            border-bottom-color: var(--color-accent);
+        }
+
+        /* ==========================================================
+           5. ARTICLE (konten utama di dalam <main>)
+           ========================================================== */
+        .card {
+            background: var(--color-surface);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .article__title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .article__subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .article__heading {
+            font-size: 1.3rem;
+            margin: 1.8rem 0 0.8rem;
+            border-left: 5px solid var(--color-accent);
+            padding-left: 0.8rem;
+        }
+
+        .article__text {
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        /* Figure */
+        .figure {
+            margin: 1.8rem 0;
+            background: var(--color-bg);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .figure__img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 1rem;
+            margin-inline: auto;
+        }
+
+        .figure__caption {
+            margin-top: 0.6rem;
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            font-style: italic;
+        }
+
+        /* Skills — Flexbox component #3 (skills-list, bonus, melebihi minimal 2) */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 0.8rem;
+        }
+
+        .skills-list__item {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================================
+           6. ASIDE
+           ========================================================== */
+        .aside__title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid var(--color-accent);
+            padding-bottom: 0.4rem;
+        }
+
+        .aside__date {
+            display: block;
+            background: var(--color-bg);
+            padding: 0.6rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .aside__list {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .aside__list-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .aside__list-item::before {
+            content: "▹";
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+
+        /* ==========================================================
+           7. FOOTER — Flexbox component #4
+           ========================================================== */
+        .footer__bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--color-dark);
+            color: var(--color-text-muted);
+            padding: 1.8rem 2rem;
+            border-radius: var(--radius-lg);
+            font-size: 0.95rem;
+        }
+
+        .footer__bar a {
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+
+        .footer__bar a:hover {
+            text-decoration: underline;
+        }
